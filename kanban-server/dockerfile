@@ -1,0 +1,16 @@
+#base image 
+FROM node:9.6.1 
+
+RUN mkdir /usr/src/app/
+WORKDIR /usr/src/app/
+
+
+# add `/usr/src/app/node_modules/.bin`
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
+
+COPY package.json /usr/src/app/package.json 
+RUN npm install 
+RUN npm install -g @nestjs/cli
+
+COPY . /usr/src/app 
+CMD npm start 
