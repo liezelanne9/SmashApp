@@ -1,0 +1,2 @@
+# SmashApp
+Tracker of players
